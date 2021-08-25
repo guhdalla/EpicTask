@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Task</title>
+<link th:rel="stylesheet"
+	th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+<link th:rel="stylesheet"
+	th:href="@{https://fonts.googleapis.com/css?family=Dosis&amp;display=swap}">
+<link th:rel="stylesheet"
+	th:href="@{/assets/fonts/font-awesome.min.css}">
+<link th:rel="stylesheet" th:href="@{/assets/css/styles.css}" />
+</head>
+
+<body>
+	<div th:replace="~{fragments/navbar :: navbar('TASK')}"></div>
+	<section class="align-items-xxl-center" id="tasks-section">
+		<div id="tasks-section-div">
+			<div id="tasks-div-div">
+				<a class="btn btn-primary" id="tasks-div-button-new-task"
+					role="button" href="/task/new">Nova Tarefa</a>
+			</div>
+			<div class="table-responsive" id="tasks-div-table">
+				<table class="table table-borderless">
+					<thead id="tasks-table-header">
+						<tr id="tasks-header-row">
+							<th id="tasks-header-cell-1">New</th>
+							<th id="tasks-header-cell-2">My Tasks</th>
+							<th id="tasks-header-cell-3">Ohters Taks</th>
+						</tr>
+					</thead>
+					<tbody id="tasks-table-body">
+						<tr id="tasks-body-row">
+							<td id="tasks-body-cell-1">
+								<div class="container" id="tasks-body-cell-1-container">
+									<div id="tasks-body-cell-1-container-div">
+										<h1 id="tasks-body-card-new-title">Criar DB</h1>
+										<p id="tasks-body-card-new-descripton">
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+											do eiusmod tempor incididunt ut labore et dolore magna
+											aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+											ullamco.<br>
+										</p>
+										<div class="progress" id="tasks-body-card-new-progress">
+											<div
+												class="progress-bar progress-bar-striped progress-bar-animated"
+												aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+												style="width: 0%;">0%</div>
+										</div>
+										<div class="d-xxl-flex justify-content-xxl-end"
+											id="tasks-body-card-new-div">
+											<div class="col d-xxl-flex align-items-xxl-center"
+												id="tasks-body-card-new-column-1">
+												<span id="tasks-body-card-new-points">150pts</span>
+											</div>
+											<div class="col d-xxl-flex justify-content-xxl-end"
+												id="tasks-body-card-new-column-2">
+												<button class="btn btn-primary"
+													id="tasks-body-card-new-button-pegar" type="button">Pegar</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
+							<td id="tasks-body-cell-2">
+								<div class="container" id="tasks-body-cell-2-container">
+									<div id="tasks-body-cell-2-container-div">
+										<h1 id="tasks-body-card-my-heading">
+											Criar DB<img class="rounded-circle float-end"
+												id="tasks-body-card-progress-user"
+												src="assets/img/gustavo-dalla.jpg">
+										</h1>
+										<p id="tasks-body-card-my-description">
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+											do eiusmod tempor incididunt ut labore et dolore magna
+											aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+											ullamco.<br>
+										</p>
+										<div class="progress" id="tasks-body-card-my-preogress">
+											<div
+												class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
+												aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+												style="width: 50%;">50%</div>
+										</div>
+										<div class="d-xxl-flex justify-content-xxl-end"
+											id="tasks-body-card-my-div">
+											<div class="col d-xxl-flex align-items-xxl-center"
+												id="tasks-body-card-my-column-1">
+												<span id="tasks-body-card-my-points">150pts</span>
+											</div>
+											<div class="col d-xxl-flex justify-content-xxl-end"
+												id="tasks-body-card-my-column-2">
+												<button class="btn btn-primary"
+													id="tasks-body-card-my-button-largar" type="button">Largar</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
+							<td id="tasks-body-cell-3">
+								<div class="container" id="tasks-body-cell-3-container">
+									<div id="tasks-body-cell-3-container-div">
+										<h1 id="tasks-body-card-others-title">
+											Criar DB<img class="rounded-circle float-end"
+												id="tasks-body-card-others-user"
+												src="assets/img/gustavo-dalla.jpg">
+										</h1>
+										<p id="tasks-body-card-others-description">
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+											do eiusmod tempor incididunt ut labore et dolore magna
+											aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+											ullamco.<br>
+										</p>
+										<div class="progress" id="tasks-body-card-others-progress">
+											<div
+												class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+												aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+												style="width: 90%;">90%</div>
+										</div>
+										<div class="d-xxl-flex justify-content-xxl-end"
+											id="tasks-body-card-others-div">
+											<div class="col d-xxl-flex align-items-xxl-center"
+												id="tasks-body-card-others-column">
+												<span id="tasks-body-card-others-points">150pts</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

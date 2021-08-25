@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Register</title>
+<link th:rel="stylesheet"
+	th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+<link th:rel="stylesheet"
+	th:href="@{https://fonts.googleapis.com/css?family=Dosis&amp;display=swap}">
+<link th:rel="stylesheet"
+	th:href="@{/assets/fonts/font-awesome.min.css}">
+<link th:rel="stylesheet" th:href="@{/assets/css/styles.css}" />
+</head>
+
+<body class="d-xxl-flex align-items-xxl-center">
+	<section class="d-xxl-flex align-items-xxl-center"
+		id="section-register">
+		<div class="d-flex align-items-xxl-center" id="register-div-1">
+			<div class="col" id="register-div-1-column-1">
+				<div id="register-column-1-div"></div>
+			</div>
+			<div class="col-xxl-5 align-items-xxl-center"
+				id="register-div-1-column-2">
+				<div id="register-column-2-div">
+					<h1 id="register-div-heading">EPICTASK</h1>
+				</div>
+				<form id="register-column-2-form" action="/register" method="post"
+					th:object="${usuario}">
+					
+					<label class="form-label" id="register-form-label-1">
+						Nome 
+							<input
+							class="form-control" type="text" id="register-label-1-nome"
+							name="nome" th:field="*{nome}">
+							<span th:errors="*{nome}"></span>
+					</label>
+					
+					<label class="form-label" id="register-form-label-2">
+						E-mail
+							<input
+							class="form-control" type="email" id="register-label-2-email"
+							name="email" th:field="*{email}">
+							<span th:errors="*{email}"></span>
+					</label>
+					
+					<label class="form-label" id="register-form-label-3">
+						Senha
+							<input
+							class="form-control" type="password" id="register-label-3-senha"
+							name="senha" th:field="*{senha}">
+							<span th:errors="*{senha}"></span></label>
+
+					<div id="register-form-div">
+						<button class="btn btn-primary"
+							id="register-form-button-cadastrar" type="submit">Cadastrar</button>
+						<a class="btn btn-outline-primary" role="button"
+							id="register-form-button-voltar" href="/login">Voltar</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+insert into T_EPC_TASK(id, title, description, points) values (SQ_T_EPC_TASK.nextval, 'Criar Banco', 'Crie o banco em oracle para a persistencia de dados', 50)

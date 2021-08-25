@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Login</title>
+<link th:rel="stylesheet"
+	th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+<link th:rel="stylesheet"
+	th:href="@{https://fonts.googleapis.com/css?family=Dosis&amp;display=swap}">
+<link th:rel="stylesheet"
+	th:href="@{/assets/fonts/font-awesome.min.css}">
+<link th:rel="stylesheet" th:href="@{/assets/css/styles.css}" />
+</head>
+
+<body class="d-xxl-flex align-items-xxl-center">
+	<section class="d-xxl-flex align-items-xxl-center" id="login-section">
+		<div class="d-flex align-items-xxl-center" id="login-section-div">
+			<div class="col-xxl-5 align-items-xxl-center" id="login-div-column-1">
+				<div id="login-column-1-div">
+					<h1 id="login-div-heading">EPICTASK</h1>
+				</div>
+				<form id="login-column-1-form">
+					<label class="form-label" id="login-form-label-1">E-mail<input
+						class="form-control" type="email" id="login-label-1-email"></label><label
+						class="form-label" id="login-form-label-2">Senha<input
+						class="form-control" type="password" id="login-label-1-senha"></label>
+					<div id="login-form-div">
+						<button class="btn btn-primary" id="login-form-button-entrar"
+							type="button">Entrar</button>
+						<a class="btn btn-outline-primary" role="button"
+							id="login-form-button-cadastrar" href="/register">Cadastrar</a> <a
+							class="btn btn-outline-primary" role="button"
+							id="login-form-button-cadastrar" href="/showuser">Ver Usuarios</a>
+					</div>
+				</form>
+			</div>
+			<div class="col" id="login-div-column-2">
+				<div id="login-column-2-div"></div>
+			</div>
+		</div>
+	</section>
+	<script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

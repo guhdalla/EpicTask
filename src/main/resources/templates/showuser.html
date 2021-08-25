@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>ShowUser - EpicTask</title>
+</head>
+<body>
+	<h1>EpicTask</h1>
+	<h2>Usuarios</h2>
+
+	<a href="/login">Voltar para Login</a>
+
+	<ul th:each="usuario : ${usuarios}">
+		<li>
+			<p th:text="${usuario.nome}"></p>
+			<p th:text="${usuario.email}"></p>
+			<p th:text="${usuario.senha}"></p>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>epictask</title>
+
+<link th:rel="stylesheet"
+	th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+<link th:rel="stylesheet"
+	th:href="@{https://fonts.googleapis.com/css?family=Dosis&amp;display=swap}">
+<link th:rel="stylesheet"
+	th:href="@{/assets/fonts/font-awesome.min.css}">
+<link th:rel="stylesheet" th:href="@{/assets/css/styles.css}" />
+</head>
+<body>
+	<div th:replace="~{fragments/navbar :: navbar('TASK')}"></div>
+	<section class="align-items-xxl-center" id="new-task-section">
+		<div id="new-task-section-div">
+			<div id="new-task-div-div-1">
+				<a class="btn btn-primary" id="new-task-div-1-button-voltar"
+					role="button" href="/task">Voltar</a>
+			</div>
+			<h1 id="new-task-div-heading">Nova Tarefa</h1>
+			<div class="d-xxl-flex justify-content-xxl-center"
+				id="new-task-div-div-2">
+
+				<form class="text-center" id="new-task-div-2-form" action="/task"
+					method="post" th:object="${task}">
+
+					<label class="form-label text-start" id="new-task-form-label-1">Titulo
+						<input class="form-control" type="text" id="new-task-form-title"
+						name="title" th:field="*{title}"> <span
+						th:errors="*{title}"></span>
+					</label> <label class="form-label text-start" id="new-task-form-label-2">Descrição
+						<textarea class="form-control" id="new-task-form-description"
+							name="description" th:field="*{description}"></textarea> <span
+						th:errors="*{description}"></span>
+					</label> <label class="form-label text-start" id="new-task-form-label-3">Pontos
+						<input class="form-range form-control" type="range"
+						id="new-task-form-range" name="points" th:field="*{points}">
+						<span th:errors="*{points}"></span>
+					</label>
+
+					<div id="new-task-form-div">
+						<button class="btn btn-primary" id="new-task-form-button-criar"
+							type="submit">Criar</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</section>
+	<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

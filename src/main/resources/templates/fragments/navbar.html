@@ -1,0 +1,22 @@
+<nav th:fragment="navbar(item)" class="navbar navbar-light navbar-expand-md d-xxl-flex align-items-xxl-center" id="navbar">
+        <div class="container-fluid"><a class="navbar-brand" id="navbar-brand" href="#">EPICTASK<br></a>
+            <div class="collapse navbar-collapse d-xxl-flex justify-content-xxl-center" id="navcol-1">
+                <ul class="navbar-nav d-xxl-flex flex-grow-1 justify-content-xxl-center align-items-xxl-end" id="nav-1">
+                    <li th:if="${item == 'DASHBOARD'}" class="nav-item d-xxl-flex align-items-xxl-center" id="item-dashboard-select"><a class="nav-link" id="nav-item" href="#"><i class="fa fa-dashboard" style="margin-right: 5px;"></i>Dashboard</a></li>
+                    <li th:unless="${item == 'DASHBOARD'}" class="nav-item d-xxl-flex align-items-xxl-center" id="item-dashboard"><a class="nav-link" id="nav-item" href="#"><i class="fa fa-dashboard" style="margin-right: 5px;"></i>Dashboard</a></li>
+                    
+                    <li th:if="${item == 'TASK'}" class="nav-item d-xxl-flex align-items-xxl-center" id="item-tarefas-select"><a class="nav-link" id="nav-item" href="/task"><i class="fa fa-tasks" style="margin-right: 5px;"></i>Tarefas</a></li>
+                    <li th:unless="${item == 'TASK'}" class="nav-item d-xxl-flex align-items-xxl-center" id="item-tarefas"><a class="nav-link" id="nav-item" href="/task"><i class="fa fa-tasks" style="margin-right: 5px;"></i>Tarefas</a></li>
+                    
+                    <li th:if="${item == 'CONCLUIDA'}" class="nav-item d-xxl-flex align-items-xxl-center" id="item-concluidas-select"><a class="nav-link" id="nav-item" href="#"><i class="fa fa-check-square-o" style="margin-right: 5px;"></i>Concluidas</a></li>
+                    <li th:unless="${item == 'CONCLUIDA'}" class="nav-item d-xxl-flex align-items-xxl-center" id="item-concluidas"><a class="nav-link" id="nav-item" href="#"><i class="fa fa-check-square-o" style="margin-right: 5px;"></i>Concluidas</a></li>
+                    
+                    <li th:if="${item == 'RANK'}" class="nav-item d-xxl-flex align-items-xxl-center" id="item-rank-select"><a class="nav-link" id="nav-item" href="#"><i class="fa fa-line-chart" style="margin-right: 5px;"></i>Rank</a></li>
+                    <li th:unless="${item == 'RANK'}" class="nav-item d-xxl-flex align-items-xxl-center" id="item-rank"><a class="nav-link" id="nav-item" href="#"><i class="fa fa-line-chart" style="margin-right: 5px;"></i>Rank</a></li>
+                </ul>
+                <ul class="navbar-nav float-end" id="nav-2">
+                    <li class="nav-item" id="item-perfil"><a class="btn btn-outline-primary d-xxl-flex justify-content-xxl-center align-items-xxl-center" role="button" id="nav-botao-perfil"><img class="rounded-circle" id="perfil" th:src="@{/assets/img/gustavo-dalla.jpg}"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
