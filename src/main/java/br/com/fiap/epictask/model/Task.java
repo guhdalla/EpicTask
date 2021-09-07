@@ -17,7 +17,7 @@ public class Task {
 	private Long id;
 
 	@NotBlank(message = "O titulo e Obrigatorio")
-	@Column(name = "nm_task", length = 20, nullable = false, unique = true)
+	@Column(name = "nm_task", length = 20, nullable = false)
 	private String title;
 
 	@Size(min = 10)

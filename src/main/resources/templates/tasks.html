@@ -35,26 +35,23 @@
 					<tbody id="tasks-table-body">
 						<tr id="tasks-body-row">
 							<td id="tasks-body-cell-1">
-								<div class="container" id="tasks-body-cell-1-container">
+								<div class="container" id="tasks-body-cell-1-container" th:each="task : ${tasks}"> 
 									<div id="tasks-body-cell-1-container-div">
-										<h1 id="tasks-body-card-new-title">Criar DB</h1>
-										<p id="tasks-body-card-new-descripton">
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-											do eiusmod tempor incididunt ut labore et dolore magna
-											aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-											ullamco.<br>
+										<h1 id="tasks-body-card-new-title" th:text="${task.title}"></h1>
+										<p id="tasks-body-card-new-descripton" th:text="${task.description}">
+											<br>
 										</p>
 										<div class="progress" id="tasks-body-card-new-progress">
 											<div
 												class="progress-bar progress-bar-striped progress-bar-animated"
-												aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-												style="width: 0%;">0%</div>
+												aria-valuenow="${task.points}" aria-valuemin="0" aria-valuemax="100"
+												style="width: 0%;" th:text="${task.points}"></div>
 										</div>
 										<div class="d-xxl-flex justify-content-xxl-end"
 											id="tasks-body-card-new-div">
 											<div class="col d-xxl-flex align-items-xxl-center"
 												id="tasks-body-card-new-column-1">
-												<span id="tasks-body-card-new-points">150pts</span>
+												<span id="tasks-body-card-new-points" th:text="${task.points}+pts"></span>
 											</div>
 											<div class="col d-xxl-flex justify-content-xxl-end"
 												id="tasks-body-card-new-column-2">

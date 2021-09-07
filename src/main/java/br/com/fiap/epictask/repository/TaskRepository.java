@@ -8,5 +8,5 @@ import br.com.fiap.epictask.model.Task;
 
 public interface TaskRepository extends JpaRepository<Task, Long>{
 
-	Page<Task> findByTitleLike(String title, Pageable pageable);
+	Page<Task> findByTitleContaining(String string, Pageable pageable);
 }

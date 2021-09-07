@@ -3,7 +3,11 @@ package br.com.fiap.epictask.controller.api;
 import java.net.URI;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -30,14 +34,16 @@ public class ApiTaskController {
 	private TaskRepository repository;
 
 	@GetMapping
+	@Cacheable("tasks")
 	public Page<Task> index(@RequestParam(required = false) String title, @PageableDefault Pageable pageable) {
 		if (title == null)
 			return repository.findAll(pageable);
-		return repository.findByTitleLike("%" + title + "%", pageable);
+		return repository.findByTitleContaining("%" + title + "%", pageable);
 	}
 
 	@PostMapping
-	public ResponseEntity<Task> create(@RequestBody Task task, UriComponentsBuilder uriBuilder) {
+	@CacheEvict(value = "tasks", allEntries = true)
+	public ResponseEntity<Task> create(@RequestBody @Valid Task task, UriComponentsBuilder uriBuilder) {
 		repository.save(task);
 		URI uri = uriBuilder.path("/api/task/{id}").buildAndExpand(task.getId()).toUri();
 		return ResponseEntity.created(uri).body(task);
@@ -45,13 +51,11 @@ public class ApiTaskController {
 
 	@GetMapping("{id}")
 	public ResponseEntity<Task> detail(@PathVariable Long id) {
-		Optional<Task> task = repository.findById(id);
-		if (task.isPresent())
-			return ResponseEntity.ok(task.get());
-		return ResponseEntity.notFound().build();
+		return ResponseEntity.of(repository.findById(id));
 	}
 
 	@DeleteMapping("{id}")
+	@CacheEvict(value = "tasks", allEntries = true)
 	public ResponseEntity<Task> remove(@PathVariable Long id) {
 		Optional<Task> task = repository.findById(id);
 		if (task.isEmpty())
@@ -61,7 +65,8 @@ public class ApiTaskController {
 	}
 
 	@PutMapping("{id}")
-	public ResponseEntity<Task> update(@PathVariable Long id, @RequestBody Task task) {
+	@CacheEvict(value = "tasks", allEntries = true)
+	public ResponseEntity<Task> update(@PathVariable Long id, @RequestBody @Valid Task task) {
 		return repository.findById(id).map(record -> {
 			record.setTitle(task.getTitle());
 			record.setDescription(task.getDescription());

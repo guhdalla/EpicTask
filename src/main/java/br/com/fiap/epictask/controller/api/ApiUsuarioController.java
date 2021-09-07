@@ -3,6 +3,8 @@ package br.com.fiap.epictask.controller.api;
 import java.net.URI;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,11 +35,11 @@ public class ApiUsuarioController {
 	public Page<Usuario> index(@RequestParam(required = false) String nome, @PageableDefault Pageable pageable) {
 		if (nome == null)
 			return repository.findAll(pageable);
-		return repository.findByNomeLike("%" + nome + "%", pageable);
+		return repository.findByNomeContaining("%" + nome + "%", pageable);
 	}
 
 	@PostMapping
-	public ResponseEntity<Usuario> create(@RequestBody Usuario usuario, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<Usuario> create(@RequestBody @Valid Usuario usuario, UriComponentsBuilder uriBuilder) {
 		repository.save(usuario);
 		URI uri = uriBuilder.path("/api/usuario/{id}").buildAndExpand(usuario.getId()).toUri();
 		return ResponseEntity.created(uri).body(usuario);
@@ -45,10 +47,7 @@ public class ApiUsuarioController {
 
 	@GetMapping("{id}")
 	public ResponseEntity<Usuario> detail(@PathVariable Long id) {
-		Optional<Usuario> usuario = repository.findById(id);
-		if (usuario.isPresent())
-			return ResponseEntity.ok(usuario.get());
-		return ResponseEntity.notFound().build();
+		return ResponseEntity.of(repository.findById(id));
 	}
 
 	@DeleteMapping("{id}")
@@ -61,7 +60,7 @@ public class ApiUsuarioController {
 	}
 
 	@PutMapping("{id}")
-	public ResponseEntity<Usuario> update(@PathVariable Long id, @RequestBody Usuario usuario) {
+	public ResponseEntity<Usuario> update(@PathVariable Long id, @RequestBody @Valid Usuario usuario) {
 		return repository.findById(id).map(record -> {
 			record.setNome(usuario.getNome());
 			record.setEmail(usuario.getEmail());

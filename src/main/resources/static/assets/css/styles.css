@@ -380,6 +380,7 @@ body {
 
 #tasks-body-cell-1 {
   color: var(--bs-light);
+  padding: 40px;
 }
 
 #tasks-body-cell-2 {
@@ -391,6 +392,7 @@ body {
 }
 
 #tasks-body-cell-1-container {
+  margin: 20px;
   border-radius: 30px;
   background: linear-gradient(145deg, #232323, #1e1e1e);
   box-shadow: 5px 5px 10px #141414, -3px -3px 6px #2e2e2e;

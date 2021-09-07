@@ -18,19 +18,19 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario")
 	private Long id;
 
-	@NotBlank
+	@NotBlank(message = "O nome é obrigatório")
 	@Size(min = 8, max = 20)
 	@Column(name = "nm_usuario", length = 20, nullable = false)
 	private String nome;
 	
-	@NotBlank
-	@Email
+	@NotBlank(message = "O e-mail é obrigatório")
+	@Email(message = "o e-mail deve ser um e-mail válido")
 	@Size(max = 50)
-	@Column(name = "ds_email", length = 50, nullable = false, unique = true)
+	@Column(name = "ds_email", length = 50, nullable = false)
 	private String email;
 	
 	@NotBlank
-	@Size(min = 8, max = 20)
+	@Size(min = 8, max = 20, message = "A senha deve ter pelo menos 8 caracteres")
 	@Column(name = "ds_senha", length = 20, nullable = false)
 	private String senha;
 }
