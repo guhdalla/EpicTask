@@ -1,5 +1,5 @@
 # EpicTask
 Estudando Spring Boot. Projeto de gerenciamento em tarefas
 
-IntegrantesÇ
+Integrantes:
 RM85743 Gustavo Dalla Torre Bin
