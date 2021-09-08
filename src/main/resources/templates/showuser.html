@@ -1,22 +1,56 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>ShowUser - EpicTask</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>User's</title>
+<link th:rel="stylesheet"
+	th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+<link th:rel="stylesheet"
+	th:href="@{https://fonts.googleapis.com/css?family=Dosis&amp;display=swap}">
+<link th:rel="stylesheet"
+	th:href="@{/assets/fonts/font-awesome.min.css}">
+<link th:rel="stylesheet" th:href="@{/assets/css/styles.css}" />
 </head>
+
 <body>
-	<h1>EpicTask</h1>
-	<h2>Usuarios</h2>
-
-	<a href="/login">Voltar para Login</a>
-
-	<ul th:each="usuario : ${usuarios}">
-		<li>
-			<p th:text="${usuario.nome}"></p>
-			<p th:text="${usuario.email}"></p>
-			<p th:text="${usuario.senha}"></p>
-		</li>
-	</ul>
+	<section class="align-items-xxl-center" id="tasks-section">
+		<div id="tasks-section-div">
+		<div id="tasks-div-div">
+				<a class="btn btn-primary" id="tasks-div-button-new-task"
+					role="button" href="/login">Voltar para Login</a>
+			</div>
+			<div class="table-responsive" id="tasks-div-table">
+				<table class="table table-borderless">
+					<thead id="tasks-table-header">
+						<tr id="tasks-header-row">
+							<th id="tasks-header-cell-1">User's</th>
+						</tr>
+					</thead>
+					<tbody id="tasks-table-body">
+						<tr id="tasks-body-row">
+							<td id="tasks-body-cell-1">
+								<div class="container" id="tasks-body-cell-1-container" th:each="usuario : ${usuarios}"> 
+									<div id="tasks-body-cell-1-container-div">
+										<h1 id="tasks-body-card-new-title" th:text="${usuario.nome}"></h1>
+										<p id="tasks-body-card-new-descripton" th:text="${usuario.email}">
+											<br>
+										</p>
+										<p id="tasks-body-card-new-descripton" th:text="${usuario.senha}">
+											<br>
+										</p>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>

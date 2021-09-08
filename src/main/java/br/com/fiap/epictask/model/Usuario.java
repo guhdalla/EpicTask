@@ -19,13 +19,11 @@ public class Usuario {
 	private Long id;
 
 	@NotBlank(message = "O nome é obrigatório")
-	@Size(min = 8, max = 20)
 	@Column(name = "nm_usuario", length = 20, nullable = false)
 	private String nome;
 	
 	@NotBlank(message = "O e-mail é obrigatório")
 	@Email(message = "o e-mail deve ser um e-mail válido")
-	@Size(max = 50)
 	@Column(name = "ds_email", length = 50, nullable = false)
 	private String email;
 	
